@@ -1,6 +1,3 @@
-package ru.mail.track;
-
-
 public class User {
     private String name;
     private String pass;

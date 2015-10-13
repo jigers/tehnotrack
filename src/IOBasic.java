@@ -1,6 +1,3 @@
-package ru.mail.track;
-
-
 import java.io.BufferedReader;
 import java.io.Console;
 import java.io.InputStreamReader;
