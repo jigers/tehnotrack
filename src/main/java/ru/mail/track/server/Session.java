@@ -35,6 +35,7 @@ public class Session {
         this.sessionManager = sessionManager;
         this.userStorage = userStorage;
         this.chatStorage = chatStorage;
+        this.messageStorage = messageStorage;
         this.id = id;
     }
     public void setConnectionHandler (ConnectionHandler connectionHandler) {

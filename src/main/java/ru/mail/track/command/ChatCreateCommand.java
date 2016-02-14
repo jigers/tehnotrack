@@ -50,20 +50,9 @@ public class ChatCreateCommand extends BaseCommand implements Command {
                 //notification to all users in new chat, except the leader,
                 Message msg = new Message("You were added to a new chat with ID = " + chat.getId(), CommandType.MSG, 0, null);
 
-                /*System.out.println(chat.getUsers().size());
-                for (User user : chat.getUsers()) {
-                    if (user == null) {
-                        System.out.println("???");
-                    } else {
-                        System.out.println(Integer.toString(user.getId()) + " " + user.getName());
-                    }
-                }*/
                 chat.getUsers().forEach(user -> {
                     try {
                         if (user.getId() != chat.getLeader().getId()) {
-                            System.out.println(user.getName());
-                            System.out.println(user.getId());
-                            session.sessionManager.getSessionByUser(user.getId()).getConnectionHandler();
                             session.sessionManager.getSessionByUser(user.getId()).getConnectionHandler().send(msg);
                             //TODO! behaviour if no session for this user
                         }
@@ -78,7 +67,6 @@ public class ChatCreateCommand extends BaseCommand implements Command {
                 type = CommandType.RESPOND_OK;
             }
         }
-        System.out.println("15");
         return new Message(messageText, type, message.getId(), null);
     }
 }

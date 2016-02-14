@@ -10,6 +10,7 @@ import java.util.Map;
 /**
  * Created by egor on 24.11.15.
  */
+@Deprecated
 public class MemoryChatStorage implements ChatStorage {
 
     private Map<Integer, Chat> chats = new HashMap<>();
@@ -73,5 +74,10 @@ public class MemoryChatStorage implements ChatStorage {
             }
         }
         return chatList;
+    }
+
+    @Override
+    public void close() {
+
     }
 }

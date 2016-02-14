@@ -22,10 +22,10 @@ public class SessionManager {
         userSession = new HashMap<>();
     }
 
-    public Session createSession(UserStorage userStorage, ChatStorage chatStorage,
+    public Session createSession(UserStorage userStorage, ChatStorage chatStorage, MessageStorage messageStorage,
                                  ConnectionHandler connectionHandler) {
         Integer id = sessionCounter.getAndIncrement();
-        Session session = new Session(id, userStorage, chatStorage, this, connectionHandler);
+        Session session = new Session(id, userStorage, messageStorage, chatStorage, this, connectionHandler);
         return session;
     }
 

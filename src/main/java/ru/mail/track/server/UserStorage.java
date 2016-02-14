@@ -21,5 +21,4 @@ public interface UserStorage {
     void updateNickname(int userId, String nickname);
 
     void changePass(int userId, String newPass);
-
 }

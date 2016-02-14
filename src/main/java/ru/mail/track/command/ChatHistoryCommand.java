@@ -24,7 +24,7 @@ public class ChatHistoryCommand extends BaseCommand implements Command {
             type = CommandType.RESPOND_ERROR;
             messageText = "Error: you are not authorized.";
         } else {
-            MessageStorage messageStorage = session.chatStorage.getChat(Integer.parseInt(args.get(0))).messageStorage;
+            MessageStorage messageStorage = session.messageStorage;
             int messageNumber;
             if (args.size() == 1) {
                 messageNumber = messageStorage.getSize();
@@ -32,10 +32,11 @@ public class ChatHistoryCommand extends BaseCommand implements Command {
                 messageNumber = Integer.parseInt(args.get(1));
             }
 
-            List<Message> results = messageStorage.getLastMessages(Integer.parseInt(args.get(0)), null, messageNumber);
+            List<Message> results = messageStorage.getLastMessages(Integer.parseInt(args.get(0)), messageNumber);
             StringBuilder builder = new StringBuilder("Last " + Integer.toString(results.size()) + " messages:\n");
             for (int i = 0; i < results.size(); ++i) {
-                builder.append("  " + messageStorage.getAuthor(results.get(i).getId()).getNickname() + " at "
+                int author_id = messageStorage.getAuthor(results.get(i).getId());
+                builder.append("  " + session.userStorage.getUser(author_id).getNickname() + " at "
                         + results.get(i).getTime() + ": \n  >" + results.get(i).getArgs().get(1) + "\n");
             }
             type = CommandType.RESPOND_OK;

@@ -25,11 +25,12 @@ public class ChatFindCommand extends BaseCommand implements Command {
             type = CommandType.RESPOND_ERROR;
             messageText = "Error: you are not authorized.";
         } else {
-            MessageStorage messageStorage = session.chatStorage.getChat(Integer.parseInt(args.get(0))).messageStorage;
-            List<Message> results = messageStorage.find(Integer.parseInt(args.get(0)), null, args.get(1));
+            MessageStorage messageStorage = session.messageStorage;
+            List<Message> results = messageStorage.find(Integer.parseInt(args.get(0)), args.get(1));
             StringBuilder stringBuilder = new StringBuilder("Found " + Integer.toString(results.size()) + " messages:\n");
             for (int i = 0; i < results.size(); ++i) {
-                stringBuilder.append("  " + messageStorage.getAuthor(results.get(i).getId()).getNickname() + " at "
+                int authorId = messageStorage.getAuthor(results.get(i).getId());
+                stringBuilder.append("  " + session.userStorage.getUser(authorId).getNickname() + " at "
                         + results.get(i).getTime() + ": \n  >" + results.get(i).getArgs().get(1) + "\n");
             }
             messageText = stringBuilder.toString();

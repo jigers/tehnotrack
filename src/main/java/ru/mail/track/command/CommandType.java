@@ -18,6 +18,7 @@ public enum CommandType {
     CHAT_CREATE,
     CHAT_LIST,
     MSG,
+    RESPOND_EXIT,
     RESPOND_OK,
     RESPOND_ERROR,
 }

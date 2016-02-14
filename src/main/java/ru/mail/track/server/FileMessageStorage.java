@@ -5,7 +5,7 @@ import org.postgresql.ds.PGPoolingDataSource;
 import ru.mail.track.Message;
 
 import java.util.*;
-
+/*
 @Deprecated
 public class FileMessageStorage implements MessageStorage {
     private Map<String, LinkedList<Message>> messages = new HashMap<>();
@@ -69,7 +69,7 @@ public class FileMessageStorage implements MessageStorage {
             /*String regexp = ".*" + sample + ".*";
             if (msg.getMessage().matches(regexp)) {
                 result.addFirst(msg);
-            }*/
+            }
             if (msg.getMessage().contains(sample)) {
                 result.addFirst(msg);
             }
@@ -105,7 +105,7 @@ public class FileMessageStorage implements MessageStorage {
                 out.println(entry.getValue().get(i).ge);
             }
         }
-        out.close();*/
+        out.close();
     }
 
     private void loadFromFile () throws Exception {
@@ -121,9 +121,9 @@ public class FileMessageStorage implements MessageStorage {
                 list.addFirst(new Message(message, timestamp));
             }
             messages.put(items[0], list);
-        }*/
+        }
         messages = new HashMap<>();
 
     }
 
-}
+}*/

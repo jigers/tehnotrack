@@ -23,4 +23,6 @@ public interface ChatStorage {
     boolean exist(int chatId);
 
     List<Chat> getChatList(int userId);
+
+    void close();
 }

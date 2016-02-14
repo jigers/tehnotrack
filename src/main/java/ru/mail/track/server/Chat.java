@@ -9,7 +9,6 @@ public class Chat {
     private List<User> users;
     private User leader;
     private int id;
-    public MessageStorage messageStorage;
 
     public void addUser(User user) {
         this.users.add(user);
@@ -28,7 +27,6 @@ public class Chat {
     }
 
     public Chat(List<User> users, User leader, int id) {
-        this.messageStorage = new MapMessageStorage();
         this.users = users;
         this.leader = leader;
         this.id = id;

@@ -26,6 +26,14 @@ public class Message implements Serializable{
         this.time = new Timestamp(System.currentTimeMillis());
     }
 
+    public Message(String message, CommandType type, int id, List<String> args, Timestamp time) {
+        this.type = type;
+        this.message = message;
+        this.id = id;
+        this.args = args;
+        this.time = time;
+    }
+
     public String getMessage() {
         return message;
     }

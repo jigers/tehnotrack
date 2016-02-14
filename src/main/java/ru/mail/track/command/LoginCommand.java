@@ -13,7 +13,6 @@ public class LoginCommand extends BaseCommand implements Command {
     int maxArgNumber = 2;
     @Override
     public Message execute(Session session, Message message) {
-        System.out.println("Executing login with " + Integer.toString(message.getArgs().size()));
         List<String> args = message.getArgs();
         if (args.size() > maxArgNumber || args.size() < minArgNumber) {
             return wrongArgumentNumber(args.size(), message.getId());

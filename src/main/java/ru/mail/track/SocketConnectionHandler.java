@@ -1,5 +1,7 @@
 package ru.mail.track;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.mail.track.protocol.Protocol;
 import ru.mail.track.protocol.ProtocolException;
 import ru.mail.track.server.Session;
@@ -22,6 +24,8 @@ public class SocketConnectionHandler implements ConnectionHandler {
     private OutputStream out;
     private Protocol protocol;
     private Session session;
+
+    static Logger log = LoggerFactory.getLogger(SocketConnectionHandler.class);
 
     public SocketConnectionHandler(Protocol protocol, Session session, Socket socket) throws IOException {
         this.protocol = protocol;

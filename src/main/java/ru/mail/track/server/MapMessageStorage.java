@@ -11,6 +11,8 @@ import java.util.Map;
 /**
  * Created by egor on 30.11.15.
  */
+/*
+@Deprecated
 public class MapMessageStorage implements MessageStorage {
     private Map<Integer, User> author = new HashMap<>();
     private List<Message> messages = new LinkedList<>();
@@ -58,4 +60,4 @@ public class MapMessageStorage implements MessageStorage {
     public int getSize() {
         return this.messages.size();
     }
-}
+}*/

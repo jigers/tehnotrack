@@ -15,11 +15,11 @@ public interface MessageStorage {
 
     void add(int chatId, User user, Message message);
 
-    List<Message> find(int chatId, User user, String sample);
+    List<Message> find(int chatId, String sample);
 
-    List<Message> getLastMessages(int chatId, User user, int number);
+    List<Message> getLastMessages(int chatId, int number);
 
-    User getAuthor(int messageId);
+    int getAuthor(int messageId);
 
     int getSize();
 }

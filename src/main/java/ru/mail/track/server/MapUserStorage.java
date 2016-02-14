@@ -9,6 +9,7 @@ import java.util.Map;
 /**
  * Created by egor on 24.11.15.
  */
+@Deprecated
 public class MapUserStorage implements UserStorage {
     Map<Integer, User> users= new HashMap<>();
     volatile int userIndex = 0;

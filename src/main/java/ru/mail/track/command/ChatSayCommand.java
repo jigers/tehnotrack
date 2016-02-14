@@ -28,14 +28,17 @@ public class ChatSayCommand extends BaseCommand implements Command {
             messageText = "Error: you are not authorized.";
             type = CommandType.RESPOND_ERROR;
         } else {
-            type = CommandType.RESPOND_OK;
             int chatId = Integer.parseInt(args.get(0));
-            if (session.chatStorage.exist(chatId)
-                    && session.chatStorage.getChat(chatId).contain(session.getUser().getId())) {
+            Chat chat = null;
+            if (session.chatStorage.exist(chatId)) {
+                chat = session.chatStorage.getChat(chatId);
+            }
+
+            if (chat != null) {
                 //chat exist && user in it
 
-                Chat chat = session.chatStorage.getChat(chatId);
-                chat.messageStorage.add(chatId, session.getUser(), message);
+
+                session.messageStorage.add(chatId, session.getUser(), message);
                 //send message to other users
                 String notificationText = "[chatID=" + Integer.toString(chatId) + "] " +
                         session.getUser().getNickname() + ": " + args.get(1);
